@@ -5,5 +5,5 @@ ___
 ### First Install Python Imaging Library i.e PIL using command:
 
 '''python
-**pip install Pillow**
+  **pip install Pillow**
 '''
